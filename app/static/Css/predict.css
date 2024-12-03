@@ -18,6 +18,7 @@ body {
     width: 20%;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 40px;
 }
 
 .sidebar h3 {
@@ -48,6 +49,9 @@ h1 {
     color: #ffd700;
     margin-bottom: 20px;
 }
+.description p{
+    text-align: justify;
+}
 
 .form-section {
     display: flex;
@@ -55,7 +59,7 @@ h1 {
 }
 
 .form {
-    width: 60%;
+    width: 580px;
     
 }
 
@@ -93,8 +97,10 @@ form button {
 }
 
 .description {
-    width: 35%;
+    width: 50%;
     text-align: center;
+    overflow: auto;
+    height: 600px;
 }
 
 .description img {
