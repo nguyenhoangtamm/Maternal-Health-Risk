@@ -15,7 +15,7 @@ data = pd.read_csv(csv_path)
 
 # Preprocess the data
 X = data.drop('RiskLevel', axis=1)
-y = data['RiskLevel'].map({'low risk': 0, 'mid risk': 1, 'high risk': 2})  # Chuyển sang dạng số
+y = data['RiskLevel']  # Chuyển sang dạng số
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

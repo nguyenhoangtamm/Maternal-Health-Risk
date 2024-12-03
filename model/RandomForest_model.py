@@ -35,8 +35,8 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f'Accuracy: {accuracy}')
 print('Classification Report:')
 print(classification_report(y_test, y_pred))
-# Save the model
 
+# Save the model
 model_path = project_root / 'model' / 'RandomForest_model.pkl'
 joblib.dump(model, model_path)
 print(f'Model saved to {model_path}')
