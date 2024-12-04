@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Heart Condition Prediction{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Css/layout.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">Dự Đoán</li>
+                    <li class="nav-item">Điều Khoản Sử Dụng</li>
+                    <li class="nav-item">Liên Hệ</li>
+                    <li class="nav-item">Hướng Dẫn Sử Dụng</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p><span id="current-date"></span> &copy; Maternal Health Risk. All rights reserved.</p>
+
+    </footer>
+
+</body>
+<script>
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+</script>
+</html>

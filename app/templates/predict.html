@@ -1,0 +1,56 @@
+{% extends 'layout.html'%}
+{% block title %}Heart Condition Prediction{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='Css/predict.css') }}">
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Select Algorithm</h3>
+        <select>
+            <option>DecisionTree Model</option>
+            <option>RandomForest Model</option>
+            <option>LogisticRegression Model</option>
+            <option>NeuralNetwork Model</option>
+        </select>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 >Maternal_Health_Risk</h1>
+        <div class="form-section">
+            <div class="form">
+                <h2>Vui lòng cung cấp đầy đủ thông tin</h2>
+                <form>
+                    <label for="Age">Tuổi:</label>
+                    <input type="number" id="Age" name="Age" min="1" max="60" value="18">
+                    <label for="SystolicBP">Huyết áp tầm thu:</label>
+                    <input type="number" id="SystolicBP" name="SystolicBP" min="90" max="180" value="120">
+                    <label for="DiastolicBP">Huyết áp tầm trương:</label>
+                    <input type="number" id="DiastolicBP" name="DiastolicBP" min="60" max="120" value="80">
+                    <label for="BS">Đường huyết:</label>
+                    <input type="number" id="BS" name="BS" min="70" max="200" value="100">
+                    <label for="BodyTemp">Nhiệt độ cơ thể:</label>
+                    <input type="number" id="BodyTemp" name="BodyTemp" min="95" max="105" value="98.6" step="0.1">
+                    <label for="HeartRate">Nhịp tim:</label>
+                    <input type="number" id="HeartRate" name="HeartRate" min="60" max="100" value="75">
+                    <div style="text-align: center;">
+                        <button id="predictButton" class="predict-btn">Dự đoán</button>
+                    </div>                    
+               
+                </form>
+            </div>
+            <div class="description">
+                <h2>Kết quả dự báo</h2>
+                <img src="{{ url_for('static', filename='images/congoc.png') }}" alt="Doctor">
+                <p>
+                    Are you wondering about the condition of your heart? I'll help you diagnose your heart health. I'm Dr. XGBoost!
+                </p>
+                <p>
+                    Did you know that machine learning models can help you predict heart disease pretty accurately? With this app, you can estimate your chance (probability) of having heart disease in seconds!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
