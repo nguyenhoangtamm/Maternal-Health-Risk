@@ -20,23 +20,13 @@ def predict():
 
 @app.route('/predict',methods=['POST'])
 def predictPost():
-    
-    
-    typeModel = request.form['model']
-    int_features = [float(x) for key, x in request.form.items() if key != 'model']
-    
-    final_features = [np.array(int_features)]
-    if typeModel == '0':
-        model_path = project_root / 'model' / 'decision_tree_model.pkl'
-    elif typeModel == '1':
-        model_path = project_root / 'model' / 'RandomForest_model.pkl'
-    elif typeModel == '3':
-        model_path = project_root / 'model' / 'neural_network_model.pkl'
-    elif typeModel == '2':
-        model_path = project_root / 'model' / 'logistic_regression_model.pkl'
+    model_path = project_root / 'model' / 'decision_tree_model.pkl'
 
+    # Lấy dữ liệu từ form
+    int_features = [float(x) for x in request.form.values()]
+    final_features = [np.array(int_features)]
+    print(final_features)
     model = joblib.load(model_path)
-    print("Model loaded:", model)  # In ra mô hình để kiểm tra
 
     prediction = model.predict(final_features)
     output = prediction[0]

@@ -1,14 +1,11 @@
 $(document).ready(function() {
     $('#form_main').submit(function(event) {
         event.preventDefault(); // Prevent the form from submitting via the browser
-        var formData = $('#form_main').serializeArray();
-        modelName = $('#modelType').val();
-        formData.push({name: 'model', value: modelName});
-        var dataString = $.param(formData);
+        var formData = $('#form_main').serialize();
         $.ajax({
             type: 'POST',
             url: '/predict',
-            data: dataString,
+            data: formData,
             success: function(response) {
                 $('#title').css('display', 'block');
                 if(response['prediction_text'] == 'low risk') {

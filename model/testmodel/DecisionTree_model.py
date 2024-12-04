@@ -37,7 +37,7 @@ print(f'Accuracy: {accuracy*100:.2f}%')
 print('Classification Report:')
 print(report)
 
-#Lưu Mô hình vào tệp pickle
+#Lưu Mô hình vào tệp picklez
 #tao duong dan toi thu muc model
 model_path = project_root / 'model' / 'decision_tree_model.pkl'
 with open(model_path, 'wb') as file:
