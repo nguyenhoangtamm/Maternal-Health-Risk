@@ -14,35 +14,39 @@ project_root = Path(__file__).resolve().parent.parent
 def home():
     return render_template('index.html')
    
+@app.route('/terms')
+def terms():
+    return render_template('dksd.html')
+@app.route('/contact')
+def contact():
+    return render_template('lienhe.html')
+@app.route('/guide')
+def about():
+    return render_template('hdsd.html')
 @app.route('/predict',methods=['GET'])
 def predict():
     return render_template('predict.html')
 
 @app.route('/predict',methods=['POST'])
 def predictPost():
-    
-    
-    typeModel = request.form['model']
-    int_features = [float(x) for key, x in request.form.items() if key != 'model']
-    
+    model_path = project_root / 'model' / 'decision_tree_model.pkl'
+
+    # Lấy dữ liệu từ form
+    int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    if typeModel == '0':
-        model_path = project_root / 'model' / 'decision_tree_model.pkl'
-    elif typeModel == '1':
-        model_path = project_root / 'model' / 'RandomForest_model.pkl'
-    elif typeModel == '3':
-        model_path = project_root / 'model' / 'neural_network_model.pkl'
-    elif typeModel == '2':
-        model_path = project_root / 'model' / 'logistic_regression_model.pkl'
-
+    
+    # Load the model
     model = joblib.load(model_path)
-    print("Model loaded:", model)  # In ra mô hình để kiểm tra
 
-    prediction = model.predict(final_features)
+    # Ensure the input data has the same structure as the training data
+    feature_names = ['Age', 'SystolicBP', 'DiastolicBP', 'BS', 'BodyTemp', 'HeartRate']
+    input_df = pd.DataFrame(final_features, columns=feature_names)
+
+    # Make prediction
+    prediction = model.predict(input_df)
     output = prediction[0]
     
     return jsonify({'prediction_text': format(output)})
-
 
 if(__name__=='__main__'):
     app.run(debug=True)

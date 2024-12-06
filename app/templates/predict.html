@@ -5,13 +5,24 @@
 <div class="container">
     <!-- Sidebar -->
     <div class="sidebar">
-        <h3>Select Algorithm</h3>
-        <select id="modelType">
-            <option value="0">DecisionTree Model</option>
-            <option value="1">RandomForest Model</option>
-            <option value="2">LogisticRegression Model</option>
-            <option value="3">NeuralNetwork Model</option>
-        </select>
+        
+        <div>
+            <h3>Mẫu dự đoán</h3>
+            <ul id="sample-list">
+                <li data-value="1">Mẫu 1</li>
+                <li data-value="2">Mẫu 2</li>
+                <li data-value="3">Mẫu 3</li>
+                <li data-value="4">Mẫu 4</li>
+            </ul>
+        </div>
+        <div>
+            <h3>Lịch sử chuẩn đoán</h3>
+            <ul id="history-list">
+                
+            </ul>
+        </div>
+       
+        
     </div>
 
     <!-- Main Content -->
@@ -28,7 +39,7 @@
                     <label for="DiastolicBP">Huyết áp tầm trương:</label>
                     <input type="number" id="DiastolicBP" name="DiastolicBP" min="60" max="120" value="80">
                     <label for="BS">Đường huyết:</label>
-                    <input type="number" id="BS" name="BS" max="200" value="100" step="0.1">
+                    <input type="number" id="BS" name="BS" max="200" value="100" step="0.01">
                     <label for="BodyTemp">Nhiệt độ cơ thể:</label>
                     <input type="number" id="BodyTemp" name="BodyTemp" min="95" max="105" value="98.6" step="0.1">
                     <label for="HeartRate">Nhịp tim:</label>
