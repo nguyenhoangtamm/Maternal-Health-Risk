@@ -14,6 +14,15 @@ project_root = Path(__file__).resolve().parent.parent
 def home():
     return render_template('index.html')
    
+@app.route('/terms')
+def terms():
+    return render_template('dksd.html')
+@app.route('/contact')
+def contact():
+    return render_template('lienhe.html')
+@app.route('/guide')
+def about():
+    return render_template('hdsd.html')
 @app.route('/predict',methods=['GET'])
 def predict():
     return render_template('predict.html')
