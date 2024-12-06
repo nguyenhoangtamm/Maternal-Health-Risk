@@ -25,14 +25,19 @@ def predictPost():
     # Lấy dữ liệu từ form
     int_features = [float(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    print(final_features)
+    
+    # Load the model
     model = joblib.load(model_path)
 
-    prediction = model.predict(final_features)
+    # Ensure the input data has the same structure as the training data
+    feature_names = ['Age', 'SystolicBP', 'DiastolicBP', 'BS', 'BodyTemp', 'HeartRate']
+    input_df = pd.DataFrame(final_features, columns=feature_names)
+
+    # Make prediction
+    prediction = model.predict(input_df)
     output = prediction[0]
     
     return jsonify({'prediction_text': format(output)})
-
 
 if(__name__=='__main__'):
     app.run(debug=True)
