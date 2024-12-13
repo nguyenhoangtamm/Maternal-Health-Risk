@@ -33,21 +33,26 @@
                 <h2>Vui lòng cung cấp đầy đủ thông tin</h2>
                 <form id="form_main">
                     <label for="Age">Tuổi:</label>
-                    <input type="number" id="Age" name="Age" min="1" max="60" value="18">
+                    <input type="number" id="Age" name="Age" min="10" max="70" value="25">
+                    
                     <label for="SystolicBP">Huyết áp tầm thu:</label>
-                    <input type="number" id="SystolicBP" name="SystolicBP" min="90" max="180" value="120">
+                    <input type="number" id="SystolicBP" name="SystolicBP" min="70" max="150" value="120">
+                    
                     <label for="DiastolicBP">Huyết áp tầm trương:</label>
-                    <input type="number" id="DiastolicBP" name="DiastolicBP" min="60" max="120" value="80">
+                    <input type="number" id="DiastolicBP" name="DiastolicBP" min="50" max="100" value="80">
+                    
                     <label for="BS">Đường huyết:</label>
-                    <input type="number" id="BS" name="BS" max="200" value="100" step="0.01">
+                    <input type="number" id="BS" name="BS" min="6.1" max="18" value="7.01" step="0.01">
+                    
                     <label for="BodyTemp">Nhiệt độ cơ thể:</label>
-                    <input type="number" id="BodyTemp" name="BodyTemp" min="95" max="105" value="98.6" step="0.1">
+                    <input type="number" id="BodyTemp" name="BodyTemp" min="95" max="102" value="98" step="0.1">
+                    
                     <label for="HeartRate">Nhịp tim:</label>
-                    <input type="number" id="HeartRate" name="HeartRate" min="60" max="100" value="75">
+                    <input type="number" id="HeartRate" name="HeartRate" min="50" max="90" value="75">
+                    
                     <div style="text-align: center;">
                         <button type="submit" id="predictButton" class="predict-btn">Dự đoán</button>
-                    </div>                    
-               
+                    </div>
                 </form>
             </div>
             <div class="description">

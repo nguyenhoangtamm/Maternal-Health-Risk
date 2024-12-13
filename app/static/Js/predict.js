@@ -10,21 +10,21 @@ $(document).ready(function() {
             success: function(response) {
                 $('#title').css('display', 'block');
                 if(response['prediction_text'] == 'low risk') {
-                    $('#risk_img').attr('src', '/static/Images/low_risk.png');
+                    $('#risk_img').attr('src', '/static/Images/low_risk.jpg');
                     $('#response').css('color', 'green');
                     $('#response').text('Rủi ro thấp');
                     $('#Mota' ).html('Mô tả: <Br>Ở mức rủi ro thấp, sức khỏe của bà mẹ được đánh giá là ổn định. Các chỉ số y tế như huyết áp, nhịp tim, đường huyết, BMI đều nằm trong khoảng an toàn. Bà mẹ không có yếu tố nguy cơ cao đối với các biến chứng thai kỳ.' )
                     $('#KhuyenNghi').html('Khuyến nghị:<br>Duy trì lối sống lành mạnh, bao gồm chế độ ăn uống cân bằng và vận động nhẹ nhàng.<Br> Tiếp tục tham gia các buổi kiểm tra thai kỳ định kỳ để đảm bảo sức khỏe.')
                 }
                 else if(response['prediction_text'] == 'mid risk') {
-                    $('#risk_img').attr('src', '/static/Images/medium_risk.png');
+                    $('#risk_img').attr('src', '/static/Images/medium_risk.jpg');
                     $('#response').css('color', 'yellow');
                     $('#response').text('Rủi ro trung bình');
                     $('#Mota' ).html('Mô tả: <Br>Mức rủi ro trung bình cho thấy một số dấu hiệu có thể gây ảnh hưởng đến sức khỏe bà mẹ, chẳng hạn như:<Br> Huyết áp hơi cao hoặc thấp hơn bình thường.<Br>Nhịp tim hoặc chỉ số đường huyết có xu hướng không ổn định.<Br> Mặc dù các yếu tố này chưa gây nguy hiểm ngay lập tức, nhưng cần được theo dõi và điều chỉnh kịp thời.' )
                     $('#KhuyenNghi').html('Khuyến nghị:<br>Tham khảo ý kiến bác sĩ để kiểm tra sức khỏe chi tiết hơn.<Br>Theo dõi các chỉ số y tế thường xuyên qua ứng dụng hoặc thiết bị đo.<Br>Điều chỉnh chế độ dinh dưỡng, nghỉ ngơi hợp lý, tránh căng thẳng.')
                 }
                 else if(response['prediction_text'] == 'high risk') {
-                    $('#risk_img').attr('src', '/static/Images/high_risk.png');
+                    $('#risk_img').attr('src', '/static/Images/high_risk.jpg');
                     $('#response').css('color', 'red');
                     $('#response').text('Rủi ro cao');
                     $('#Mota' ).html('Mô tả: <Br>Mức rủi ro cao cho thấy bà mẹ đang đối mặt với các yếu tố nguy hiểm tiềm tàng, bao gồm:<Br>Huyết áp cao nghiêm trọng (có nguy cơ tiền sản giật).<Br>Nhịp tim bất thường hoặc nhịp nhanh.<Br>Chỉ số đường huyết rất cao (dấu hiệu của tiểu đường thai kỳ).<Br>BMI quá cao (béo phì) hoặc quá thấp (suy dinh dưỡng), ảnh hưởng đến sự phát triển của thai nhi.<Br>Tình trạng này yêu cầu can thiệp y tế khẩn cấp để giảm thiểu nguy cơ biến chứng cho mẹ và bé.' )
@@ -66,7 +66,7 @@ const samples = [
         Age: 35,
         SystolicBP: 140,
         DiastolicBP: 90,
-        BS: 120,
+        BS: 7.0,
         BodyTemp: 98.4,
         HeartRate: 85
     },
@@ -74,7 +74,7 @@ const samples = [
         Age: 40,
         SystolicBP: 150,
         DiastolicBP: 95,
-        BS: 130,
+        BS: 7.5,
         BodyTemp: 98.7,
         HeartRate: 90
     }
