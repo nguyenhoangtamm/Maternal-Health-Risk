@@ -6,7 +6,7 @@ from pathlib import Path
 import joblib
 
 # Đường dẫn tới thư mục gốc của dự án
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
 
 # Đường dẫn tới tệp CSV
 csv_path = project_root / 'data' / 'Maternal_Health_Risk.csv'
@@ -15,8 +15,8 @@ csv_path = project_root / 'data' / 'Maternal_Health_Risk.csv'
 data = pd.read_csv(csv_path)
 
 # Assuming the last column is the target variable
-X = data.iloc[:, :-1]
-y = data.iloc[:, -1]
+X = data.drop('RiskLevel', axis=1)
+y = data['RiskLevel']
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

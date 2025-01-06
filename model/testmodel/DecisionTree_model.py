@@ -1,7 +1,4 @@
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import pickle
 from pathlib import Path
 from sklearn.model_selection import train_test_split
@@ -9,11 +6,10 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # Đường dẫn tới thư mục gốc của dự án
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
 
 # Đường dẫn tới tệp CSV
 csv_path = project_root / 'data' / 'Maternal_Health_Risk.csv'
-
 data = pd.read_csv(csv_path)
 # Chuẩn bị dữ liệu
 X = data.drop('RiskLevel', axis=1)

@@ -9,7 +9,7 @@ header h1 {
 }
 
 header p {
-    color: #555;
+    color: white;
     font-size: 1em;
     margin-bottom: 20px;
 }
@@ -32,11 +32,11 @@ main {
 }
 
 .step p {
-    color: #555;
+    color: #302f2f;
 }
 
 footer {
     text-align: center;
     margin-top: 20px;
-    color: #555;
+    color:white;
 }

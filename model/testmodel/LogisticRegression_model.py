@@ -7,7 +7,8 @@ from pathlib import Path
 import pickle
 
 # Đường dẫn tới tệp CSV
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
+
 csv_path = project_root / 'data' / 'Maternal_Health_Risk.csv'
 
 # Load the dataset
@@ -30,22 +31,18 @@ param_grid = {
     'solver': ['lbfgs', 'liblinear'],
     'max_iter': [100, 200, 500]
 }
-
 # Initialize the Logistic Regression model
 model = LogisticRegression()
-
 # Initialize GridSearchCV
 grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=5, scoring='accuracy')
 
 # Train the model
 grid_search.fit(X_train_scaled, y_train)
-
 # Get the best model
 best_model = grid_search.best_estimator_
 
 # Make predictions
 y_pred = best_model.predict(X_test_scaled)
-
 # Evaluate the model
 accuracy = accuracy_score(y_test, y_pred)
 conf_matrix = confusion_matrix(y_test, y_pred)
